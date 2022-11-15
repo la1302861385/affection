@@ -45,6 +45,6 @@ public class UserDetailController {
             dateDir.mkdirs();
         }
         file.transferTo(new File(dateDir,newFileName));
-        return "successful";
+        return "fail";
     }
 }
