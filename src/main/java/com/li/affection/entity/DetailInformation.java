@@ -1,5 +1,6 @@
 package com.li.affection.entity;
 
+
 import com.baomidou.mybatisplus.annotation.*;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
@@ -7,23 +8,22 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserDetail {
+public class DetailInformation {
   @TableId(type = IdType.AUTO)
   private Long id;
   @JsonIgnore
   private Long userId;
-  private String nickName;
-  private String workPlace;
-  private Long income;
-  private Long height;
-  private String education;
-  private String sex;
-  private String isMarry;
-  private Date birthday;
+  private String nativePlace;
+  private String shape;
+  private String constellation;
+  private String nation;
+  private String isHaveChild;
+  private String isWantChild;
+  private String whenMarry;
+  private Long weight;
   @JsonIgnore
   @TableField(fill = FieldFill.INSERT)
   private Date createTime;
@@ -36,8 +36,6 @@ public class UserDetail {
   @JsonIgnore
   @TableLogic
   private Long deleted;
-  private String profilePicture;
-  @TableField(exist = false)
-  private HeartWord heartWord;
+
 
 }

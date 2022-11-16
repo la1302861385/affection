@@ -3,6 +3,8 @@ package com.li.affection;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.li.affection.entity.User;
+import com.li.affection.entity.UserDetail;
+import com.li.affection.mapper.UserDetailMapper;
 import com.li.affection.mapper.UserMapper;
 import com.li.affection.untils.RedisCache;
 import org.junit.jupiter.api.Test;
@@ -18,6 +20,8 @@ class Affection01ApplicationTests {
     private RedisCache redisCache;
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private UserDetailMapper userDetailMapper;
     @Test
     public void test(){
         QueryWrapper<User> wrapper = new QueryWrapper<>();
@@ -35,6 +39,14 @@ class Affection01ApplicationTests {
         LambdaQueryWrapper<User> wrapper = new LambdaQueryWrapper<>();
         wrapper.eq(User::getDeleted,1);
          userMapper.selectOne(wrapper);
+
+    }
+    @Test
+    public void test2(){
+        for (UserDetail userDetail : userDetailMapper.listUserDetails()) {
+            System.out.println(userDetail);
+        }
+
 
     }
 
